@@ -6,29 +6,33 @@ type CardDetailsProp = {
   answer: string
 }
 
+
 export function Card({ title, question, answer }: CardDetailsProp) {
+  const [currCardNum, setCurrCardNum] = useState(1)
+  const [cardAmount, setCardAmount] = useState(10)
   const [content, setContent] = useState(question)
 
+  function toggleContent() {
+    content === question ? setContent(answer) : setContent(question)
+  }
+
   return (
-    <div className='card bg-base-300 text-white items-center p-5 md:w-1/2'>
-      <div className='card-body bg-base-200 rounded-lg gap-5'>
+    <div className='card bg-base-300 text-white items-center p-3 w-full md:w-1/2'>
+      <div className='card-body bg-base-200 rounded-lg gap-10 min-w-full'>
         <div className='card-title text-xl'>{title}</div>
-        <p className='text-lg'>{content}</p>
+        <p className='text-lg h-48 overflow-y-auto'>{content}</p>
+        <button className='btn btn-accent' onClick={toggleContent}>
+          {content === question ? 'Reveal' : 'Hide'}
+        </button>
         <div className='card-actions'>
-          {content === question ? (
-            <div className='btn btn-neutral' onClick={() => setContent(answer)}>
-              Reveal back
-            </div>
-          ) : (
-            <div
-              className='btn btn-neutral'
-              onClick={() => setContent(question)}
-            >
-              Reveal front
-            </div>
-          )}
+          <div className='btn btn-neutral'>Prev card</div>
           <div className='btn btn-neutral'>Next card</div>
-        </div><progress className="progress" value="10" max="100"></progress>
+        </div>
+        <progress
+          className='progress'
+          value={currCardNum}
+          max={cardAmount}
+        ></progress>
       </div>
     </div>
   )

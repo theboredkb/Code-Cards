@@ -8,8 +8,8 @@ export function NavMenu() {
         <ul className='menu menu-horizontal px-1'>
           <li>
             <details>
-              <summary className='text-md'>Settings</summary>
-              <ul className='p-2 bg-base-100'>
+              <summary className='text-lg'>Settings</summary>
+              <ul className='p-2 bg-base-100 z-10 shadow'>
                 <li>
                   <a className='text-purple-300 hover:text-purple-300'>
                     Language
