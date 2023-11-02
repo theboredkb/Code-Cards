@@ -16,8 +16,8 @@ export function CardContent({ title, question, answer }: CardDetailsProp) {
   }
   return (
     <>
-      <div className='card-title text-xl h-10'>{title}</div>
-      <p className='text-lg h-48 overflow-y-auto'>{content}</p>
+      <div className='card-title text-xl h-8'>{title}</div>
+      <p className='text-lg h-32 overflow-y-auto'>{content}</p>
       <button className='btn btn-accent' onClick={toggleContent}>
         {content === question ? 'Reveal' : 'Hide'}
       </button>

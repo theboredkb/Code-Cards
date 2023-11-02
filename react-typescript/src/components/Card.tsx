@@ -8,7 +8,7 @@ export function Card() {
   const [currCardNum, setCurrCardNum] = useState(0)
 
   return (
-    <div className='card bg-base-300 text-white items-center p-3 w-full md:w-1/2'>
+    <div className='card bg-base-300 dark:text-white items-center p-3 w-full md:w-1/2'>
       <div className='card-body bg-base-200 rounded-lg gap-10 min-w-full'>
         <CardContent {...cardList[currCardNum]}></CardContent>
         <div className='card-actions'>
